@@ -1,0 +1,101 @@
+action creator 
+
+const soSmething(){
+   return {
+     type: SOMTHING,
+     pyload: {
+       name: 'Nikola',
+       phone: 32874924
+       }
+     }
+  }
+
+function that return a object (Action) who must have a propery type
+and can have a second propery payload that is our app data;
+---------------------------------------------------
+
+Reducer 
+
+const someReducer = (previusState = null, action) => {
+ if(action.type == "SOMETHING"){
+      return action.payload
+   }  
+  return previusStatee
+}
+
+Reducer takes two arguments previus state and action
+chek if action type is something and if it so it returns the new state
+else will return previus state
+------------------------------
+Redux Libery
+
+import { combineReducers } from 'redux'
+
+combineReducers({
+   somereducer : somereducer,
+})
+
+export default reducers;
+
+------------------------------------------
+import { createStore } from "redux"
+
+createStore(reducers)
+
+store.dispatch(action);
+
+store.getstate();
+
+-----------------
+
+React redux
+
+Provider - top level wraper that get store as props
+
+in index.js 
+
+wrap app whit provider
+
+<Provider store={ createStoere(reducers)}>
+
+------------------------
+connect
+
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => {
+  return { songs: state.songs };
+};
+
+export default connect(mapStateToProps)(componentName);
+
+what mapStateToProps return a owr component will recive as porps
+
+connect can take second parameter action that we import
+
+import { action } from 'components/actions'
+
+export default connect(mapStateToProps, {
+     nameAction: nameAction,
+})
+
+now component will recive the action as props 
+(and we can call on some event)
+
+if we call action that we import direcly will be called as regular function
+because we never refer her to reducers as action creator.
+is posible to call the function and return action and after that call dispatch manualy;
+when we call actions as connect argument than automaticly is called dispatch
+
+
+
+Building Order
+
+-make action creators
+-make reducers
+-import and install provider
+-add porps to provider create store(combine reducers)
+-import connect in component call mapStateToProps and action creators
+
+
+

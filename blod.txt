@@ -1,0 +1,48 @@
+General Data Loading with Redux
+
+-components get rendered onto the screen
+-Component didMountMethod is called
+-we call action creator from componentDidMount
+-action creator runs code to make an api request
+-api respons with data
+-action creator return action with data that we fetch
+-some reducer sees the action and returns the data 
+-because we generated some new state objec our React app 
+will be rerendered
+
+--------------------
+action with api request
+
+
+badApproach
+export cont fetchSomething = async () => {
+    const response = await axios.get(url);
+
+   return {
+    type: "Something",
+    payload: response
+  }
+}
+
+Good approach install redux-thunk
+
+Whats wrong with it?
+-Action creator must return plain Js object with a type property
+-the time our action gets to reducer we wont have fetched data
+
+because we use async await 
+whan buble compales there is swithc and case 0 is called our call method
+if we dont use async data will be late
+
+if we have middelware dispatch sand to middelwared after that in the reducer
+
+import applyMiddleware from 'redux';
+import thunk from 'redux-thunk';
+second argument in createStore(reducers, applyMiddleware(thunk));
+
+
+export cont fetchSomething = async (dispatch) => {
+    const response = await axios.get(url);
+
+   dispatch({type:"SOMETHING", payload: response})
+}

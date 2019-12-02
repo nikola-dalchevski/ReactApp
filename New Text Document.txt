@@ -1,0 +1,39 @@
+15-2,3,4,5,6,7 rules of reducers
+15-8 safe way to update state
+
+in reducers/index.js
+
+import {combineReducers } from 'redux'
+import reducer from './reducerName'
+
+export  default combineReducers({
+     reducerName: reducerName
+})
+
+Rules of Reducers
+
+-must return eny vale besides 'undefinved'
+-produces 'state' or data to be used inside of your app usin only
+previous state and the action (reducers are pure)
+-must not return reach 'out itself' to tecide what value to
+return 
+-must not mutate its input 'state' argument
+
+
+reducers are called first time when application is open
+so because is not assign default value it will recive 
+return undefined
+
+bad code in reducer dont mutate state
+state[0] = 'something'
+state.pop()
+state.push()
+
+state.name = "something"
+
+strings are imutable;
+so if reducer return string or number you cant mutate it
+dont worry
+
+safe way to update an array filter map ... return new array
+for objcets ... operator make new object
