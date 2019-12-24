@@ -82,7 +82,7 @@ export default connect(mapStateToProps, {
 now component will recive the action as props 
 (and we can call on some event)
 
-if we call action that we import direcly will be called as regular function
+if we call action that we import directly will be called as regular function
 because we never refer her to reducers as action creator.
 is posible to call the function and return action and after that call dispatch manualy;
 when we call actions as connect argument than automaticly is called dispatch

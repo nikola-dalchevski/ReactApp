@@ -1,0 +1,34 @@
+react-router
+react-router-dom // this is what we use
+react-router-native
+react-router-redux
+
+
+import { BrowserRouter, Route} from 'react-router-dom'
+
+<BrowserRouter>
+<Route path="/pageName" component={componentName}
+
+-react router see only characters after domain name
+-you can have multiple route components with same path and component
+-will be shown all routes that are contain in the url not only one;
+-exact means that component will be shown only if the path is same with the url
+
+Bad practice
+
+dont use traditional html a tag with href attribute
+
+<a href="/pagetwo">Go to page two<a/>
+
+loads index.html evry time and dumps the data end fetch all data again
+
+Right way
+
+<Link to="/pageName">go to page<Link/>
+
+Link is rendered also as a tag
+
+but dont dumps data ande make new requests
+
+if we put component inside in the BrowserRouter without route it will be 
+visible all the time 

@@ -1,6 +1,6 @@
 General Data Loading with Redux
 
--components get rendered onto the screen
+-components get rendered into the screen
 -Component didMountMethod is called
 -we call action creator from componentDidMount
 -action creator runs code to make an api request
