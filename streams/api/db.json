@@ -6,14 +6,21 @@
       "id": 1
     },
     {
-      "description": "this is a other stream",
-      "title": "other",
-      "id": 2
+      "title": "stream with id",
+      "description": "this is new stream with id",
+      "userId": "114425102390917088402",
+      "id": 5
     },
     {
-      "title": "fsfsf",
-      "description": "fsfs",
-      "id": 3
+      "title": "nikola",
+      "description": "this is new stream with id",
+      "id": 6
+    },
+    {
+      "title": "dsds",
+      "description": "testtttt",
+      "userId": "114425102390917088402",
+      "id": 7
     }
   ]
 }
