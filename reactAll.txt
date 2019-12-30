@@ -1,0 +1,230 @@
+install react npm install -g create-react-app  
+
+
+create react app two ways:
+-create-react-app
+-manulay install 
+ * npm init -y
+ * npm install react react-dom --save
+
+webpack is used for module packaging
+npm install webpack webpack-dev-server webpack-cli --save
+
+bable is compiler and transpiler used to convert one source cod to others
+it compiles jsx to js
+babel-loader for jsx
+babel-preset-react makes browser update automatically
+babel-perset-env for es6
+npm install bable-core bable-loader bable-preset-env bable-perset-react bable-webpack-plugin --save-dev
+
+
+creating files
+-index.html
+-App.js
+-main.js
+-webpack.config.js
+-.babelrc
+
+
+best is to use create-react-app name
+
+
+
+React Features
+
+-JSX
+-Components
+-One-way Data Binding
+-Virtual DOM
+-Simplicity
+-Performance
+
+
+
+1JSX
+
+<div>Hello</div>
+Reac.createElement("div", null, 'Hello') 
+(nameofElement, Attributes, Content)
+
+-to use more than one element in jsx you must wrap them in on element div
+
+-jsx attributes as regular HTML use camelCase
+-values on attributes can be in two ways:
+ * as string Literals
+ * as Expresion {}
+-JSX comments {/**/}
+
+
+-JSX style
+Inline is recomendet
+render(){
+ var myStyle = {
+fontSize: 80
+}
+
+return <div style={myStyle}>something<div>
+
+
+-jsx is javascript so you can put conditional if statement
+
+
+
+2 React Components
+
+-Functional and class based components
+-functional components have only render method and they dont have there state
+-function components are known as stateless components
+
+-class components must be extendet from react.Component and must have render method
+-class component is also known as stateful component because thay can hold local state
+
+(components will rerender only if state or props are changed)
+
+
+3 React State
+-State must be kept as simple as possible. it can be set using the setState() method
+-to set up initial state before any interaction occurs we use getInitialState() method
+
+- to define state inside constructor set up this.state = {1: something};
+
+4 Props
+-stands up for Properties
+-they are read-only component
+-its a store object that includes all atributes that are passed from parent component
+-props are imutable inside the component we can just read them
+-set up default props
+
+App.defaultProps = {
+name: "nikola"
+}
+
+export default App;
+
+-state and props can be combinated toogether in component and you can pass state as props
+
+5 React props validation
+
+-react components use special property PropType to valiedate props
+
+class App extends React.Component {
+render () {
+<p>{this.props.propArray}</p>
+}
+}
+
+App.propTypes = {
+  propArray : PropTypes.array.isRequired,
+  propBool : PropTypes.bool.isRequrired,
+  propFunc : PropTypes.func
+}
+
+- sets up the type of evry prop in the component
+
+
+custome validation 
+
+props: It should be the first argument in the component.
+propName: It is the propName that is going to validate.
+componentName: It is the componentName that are going to validated again.
+
+var Component = React.createClass({  
+App.propTypes = {  
+   customProp: function(props, propName, componentName) {  
+        if (!item.isValid(props[propName])) {  
+          return new Error('Validation failed!');  
+        }  
+      }  
+   }  
+})  
+
+
+6 State vs Props
+
+- props are read-only | state changes can b e asnchronous
+- props are immutable | state is mutable
+- props allow you to pass data from one component to another | state hold information about the components
+- props can be accessed by the child component | statet cannot be accessed from child component
+- props are used from communicate between components | state is used from rendering dynamic changes with the component
+- stateless components can have porps | stateless componens cannot have state
+- props make components reusable | state cannot make components reusable
+- props are external and controlled by whatever rednders the component | state is intrnal and controlled by the react compnonent itself
+ 
+
+changing props and state
+
+-can get inital vale from parent component yes yes;
+-can be changed by parend component yes no;
+-can set default values inside component yes yes;
+-can change inside component no yes;
+-can set initial value for child Component yes yes;
+-can change in shild components yes no;
+
+
+7 React constructor
+
+- constuctor is method used to initalize an object state in a class
+-if use constructor you mase call consructor(props) super(props)
+
+- two purposes for using constructor
+ * it used for initializing the local state of the component
+ * if used for binding event handler methods that occur in your component
+
+-if you use arrow functions you dont need to bind this in the constructor to the events
+
+constuctor(props){
+  this.handleFunction = this.handleFunction.bind(this)
+}
+
+bind can be done in jsx expresion
+
+9 React Component Life-Cycle
+
+A| Initial Phase
+
+- getDefaultProps()
+ it is used to specify the default value of this.props 
+and its invoked before the creation of the component
+
+-getInitialState()
+it is used to specify the default value of this.state
+
+B| Mount Phase
+
+-componentWillMount()
+is invoked before a component gets rendered into the DOM
+
+-componentDidMount()
+is invoked agfter component gets rendered into the DOM
+in this you can do any DOM queries
+
+-render()
+if you dont want to render anything can return null or false
+
+C| Updating Phase
+
+-componentWillReciveProps()
+is invoked when component recives new pops
+you should compere this.porps and next.Props and then update state
+
+-shouldComponentUpdate()
+if this method return true component will update else return false
+
+-componentWillUpdate()
+its invoke just before the comopnent updates
+here you can change this.setState()
+it will not be called if shouldComponentUpdate return false
+
+-render()
+
+-componentDidUpdate()
+it is invoked imediatly after component renders
+
+
+
+D| Unmounting Phase
+
+-componentWillUnmount()
+is invoked immediately before a component is destroyed and unmounted
+its used for necessery cleanup
+
