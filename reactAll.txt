@@ -87,6 +87,7 @@ return <div style={myStyle}>something<div>
 -to set up initial state before any interaction occurs we use getInitialState() method
 
 - to define state inside constructor set up this.state = {1: something};
+-outside the constructor state = {1: something};
 
 4 Props
 -stands up for Properties
@@ -104,6 +105,7 @@ export default App;
 -state and props can be combinated toogether in component and you can pass state as props
 
 5 React props validation
+import propTypes from 'prop-types';
 
 -react components use special property PropType to valiedate props
 
@@ -141,7 +143,7 @@ App.propTypes = {
 
 6 State vs Props
 
-- props are read-only | state changes can b e asnchronous
+- props are read-only | state changes can be asynchronous
 - props are immutable | state is mutable
 - props allow you to pass data from one component to another | state hold information about the components
 - props can be accessed by the child component | statet cannot be accessed from child component
@@ -154,7 +156,7 @@ App.propTypes = {
 changing props and state
 
 -can get inital vale from parent component yes yes;
--can be changed by parend component yes no;
+-can be changed by parent component yes no;
 -can set default values inside component yes yes;
 -can change inside component no yes;
 -can set initial value for child Component yes yes;
@@ -164,7 +166,7 @@ changing props and state
 7 React constructor
 
 - constuctor is method used to initalize an object state in a class
--if use constructor you mase call consructor(props) super(props)
+-if use constructor you must call consructor(props) super(props)
 
 - two purposes for using constructor
  * it used for initializing the local state of the component
@@ -189,17 +191,24 @@ and its invoked before the creation of the component
 -getInitialState()
 it is used to specify the default value of this.state
 
+
+**those methods are not used and can only bi used with React.createClass
 B| Mount Phase
 
 -componentWillMount()
 is invoked before a component gets rendered into the DOM
 
+-render()
+needs to be pure function not setup state here
+if you dont want to render anything can return null or false
+
 -componentDidMount()
 is invoked agfter component gets rendered into the DOM
 in this you can do any DOM queries
+its a good place to make api request
 
--render()
-if you dont want to render anything can return null or false
+** componentWillMount is out of usage
+
 
 C| Updating Phase
 
@@ -208,6 +217,7 @@ is invoked when component recives new pops
 you should compere this.porps and next.Props and then update state
 
 -shouldComponentUpdate()
+this method takes two arguments nextProps and nextState
 if this method return true component will update else return false
 
 -componentWillUpdate()
@@ -216,15 +226,254 @@ here you can change this.setState()
 it will not be called if shouldComponentUpdate return false
 
 -render()
+needs to be pure function not setup state here
 
 -componentDidUpdate()
 it is invoked imediatly after component renders
 
-
+** componentwillReciveProps and componentWillUpdate are out of usage
 
 D| Unmounting Phase
 
 -componentWillUnmount()
 is invoked immediately before a component is destroyed and unmounted
 its used for necessery cleanup
+
+Practical usage
+*** first rendering a component are called:
+-constructor
+-render
+-didComponentUpdate
+*** onUpdate are called:
+-shouldComponentUpdate
+-render
+-didcomponentUpdate
+*** on destroing component
+-component will unmount
+
+10 React Forms
+
+tow types of form input
+- uncontrolled 
+the som handles the from data
+you need to use ref to get form values
+- controlled
+input element is controled by the component rather the DOM
+the value is kept in the state and updated using setState()
+ constructor(props){
+   super(props)
+   this.state = {value: ""}
+   this.handleChange = this.handleChange.bind(this)
+}
+
+hadleChange(event){
+   this.setState(value: event.target.value)
+}
+
+<input onChange={this.handleChange}/>
+
+to hadling multile inputs is best to add name attribute
+
+
+ handleInputChange(event) {  
+       const target = event.target;  
+       const value = target.type === 'checkbox' ? target.checked : target.value;  
+       const name = target.name;  
+       this.setState({  
+           [name]: value  
+       });  
+  }  
+
+
+11 React Events
+
+-React event handeling system is known as Synthetic Events
+-React evetns are named camel case instead of lowercase dom events
+-whit jsx function is passed as event handler instead of a string
+- in react cant return false to prevent default behavior, must be called preventDefault() method
+
+
+
+12 Conditional Rendering
+
+-if operator
+-ternary operator
+-Logical && operator
+- switch
+
+prevent component from rendering 
+-can use conditional rendering so component will not been shown (return null)
+
+
+13 React Lists
+
+-the map method is used from traversing the list
+const items = listItems.map((item) => {
+  return  <li>{item}</item>
+})
+
+return <ul>{items}</ul>
+
+-list need to have key for evry item best is to add them in a array and to be unique identifier
+
+<li key={item.id}>{item}</li>
+
+-keys must be unique between siblians but not need to be unique globally
+
+
+
+14 React Refs
+
+-whan to use refs
+ * when we need DOM measurments such as managing focus, text selection or media playback
+ * in triggering imperative animations
+ * when integrating wit  third-party DOM libraries
+ * can use in callbacks
+
+-when not to use refs
+ * avoid for anything that can be done declaratively
+ * avoid overuse of the refs
+
+-create ref
+in constructor
+this.nameRef = React.createRef();
+
+in render method
+<div ref={this.callRef>/>
+
+
+-how to access ref
+const node = this.callRef.current
+
+-can add referene to component
+<CustomeInput ref={this.callRef}/>
+
+-callback ref
+<input type="text" ref={element => this.callRefInput = element}>
+-can be accessed anywhere like this.callRefInput.value
+
+-can forword react ref with React.forwardRef((props, rf))   (read about this)
+
+
+15 react Fragments
+
+- because render method most return one node and to dont wrap elements in div
+-you can use <React.Fragment> (ex: if div hides style)
+
+it makes execution of code faster than using div and takes ledd memory
+- short syntax is <></>
+diference is  tha sort synrax dont accept key as attruibute if we render list of items
+
+
+16 React Router
+
+-three different packages for routing
+*react-router - provides the core routing components and functions
+* react-router-native - its used fro mobile applications
+* react-router-dom - its used from web aplications
+
+-two types of router componentns
+*<BrowserRouter> handiling the dynamic URL
+*<HashRouter> it is used from handiling the static request
+
+import {Route, Link, BrowserRouter} from 'react-router-dom'
+import App from 'components';
+<BrowserRouter>
+<div>
+<Route path="/" exact  component={App}/>
+</div>
+<BrowserRouter>
+
+<ul>
+<Link to="/" >
+</ul>
+
+-to add style to active link use <NavLink>
+
+add property activeStyle={
+ { color: green}
+}
+
+
+-<Redirect> its used to redirect to another route but maintain the old urls.
+
+
+17 React CSS
+-inline styling (camelCase (backgroundColor) object)
+<p style={{color:'Green'}}>
+
+inside render method can create myStyleObject with styles
+
+
+-css stylesheeet
+make file with .css extension
+import './App.css'
+
+
+-css module
+make file with .module.css
+import styles from 'app.module.css';
+access styles with style.calssName
+<p classNaame={style.calssName}>
+
+-Styled Components
+its a library from React
+npm install styled-components --save
+
+
+18 React animations
+-are maked by using React Transition Group
+React Transition group has mainly two Apis
+* reactTransitionGroup - for low-level 
+* reactCssTransitionGroup - high-level
+
+npm install react-transition-groupe --save
+
+-react transition groups components:
+*Transition - its mainly used from mountin and unmounting component
+can access this component in four states: entering, entered, exiting, exited
+
+-CssTransitions -for transition and animations three states appear, enter, exit
+
+-Transition Group - for a list (read about this)
+
+
+19 React Bootstrap
+
+-using bootstrap cdn
+-bootstrap as dependency
+-react bootstrap package (react-bootstrap, reactstrap)
+
+
+20 React Table
+(npm install react-table) (read more about this)
+
+
+21 React Higher-Order Comopnents HOC
+22 React Code Spliting
+23 React Context
+24 React Hooks
+25 React Flux Concept
+26 React Flux vs MCV
+27 Flux vs MVC
+28 React Redux
+-Store is a p;ace where the entire state of your application lists.
+-action is set or dispatched from the view 
+-reducer read payload from the action and update the store
+npm install redux, react-redux
+
+
+export const item => item => ({
+   type: 'GET_ALL',
+   payload: {
+    name: 'nikola'
+}
+})
+
+
+29 React Portal
+-for Modals
+-Tooltips
+-floating menus
+-widgets
 
