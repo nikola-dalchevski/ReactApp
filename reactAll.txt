@@ -162,6 +162,11 @@ changing props and state
 -can set initial value for child Component yes yes;
 -can change in shild components yes no;
 
+*if changing state that depends on previus state use setState() function
+
+(prevState) => {
+   return { statePropName: !prevState.statePropName}
+}
 
 7 React constructor
 
@@ -477,3 +482,11 @@ export const item => item => ({
 -floating menus
 -widgets
 
+
+30 Axios
+
+npm install axios --save
+
+axios.get/post/put/delete
+
+-axios uses promises

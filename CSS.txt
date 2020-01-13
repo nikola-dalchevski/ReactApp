@@ -1,0 +1,167 @@
+1 Backgrounds
+-Background-color set up the background color on element
+* valid name
+* HEX #ff0000
+* RGB rgb(255,0,0)
+
+-background-image set up the background image of an element
+beckground-image: url("papet.gif")
+
+-background-repeat 
+default background image repeats image horizontally and
+vertically
+: repeat-x will repeat only horizontally
+: repeat-y will repeat only vertically
+: no-repeat
+
+-background-position is used to set up the position of background image
+: right top
+
+
+-background-attachment specifies wheter the image need to 
+scroll or be fixed
+:scroll
+:fixed
+
+-background-size specify the size of the image
+
+-background shorthand property
+/color/image/repeat/attacment/position
+
+
+2.Border
+
+-border-style : solid
+
+-border-width : 1px
+
+-border-color : color
+
+-border-top-left-bottom-right all propertyes can have for individual side
+
+-border shorthand property
+/width/style(required)/color
+
+
+3. Margin
+
+-margin-top/right/bottom/left
+
+-if has 3 values /top/left right/bottom
+
+-if has 2 values /top bottom/ right left
+
+:auto will automaticly set up margin to equal and center 
+the element horizontally
+
+:inherit from the parrent element
+
+*can have values of auto/length(px,pt,cm)/%/inherit
+
+* top and bottm margins can collapse so if two elements have
+bottom 50px and top 20px margin can collapse and total distance
+between them will be 50px not 70px
+
+4.Padding
+
+-padding /top/right/bottom/left
+
+*if has two or three values same as margin
+
+* can have values of length/%/inherit
+
+* padding is added to the width property so if the width
+is set up to 200px and padding to 15px total width will be 230px
+
+5. Height and Width
+
+*height and width dont include the paddings border or margins
+
+* can have values of auto/length/%/initial/inherit
+
+-width
+
+-height
+
+-max-width
+
+-min-width
+
+-max-height
+
+-min-height
+
+* if you set up width if the window is smaller then the width of
+the element will add scroll bar but if you use max-with than will
+make the element responsive to small screens
+
+
+6. Box Model
+
+*elements can be seen as box
+element content + padding + border + margin
+
+-outline-style/color/width/offset
+is line outside the border that make the elements standout
+
+7. Text
+
+-color: colorName/HEX/RGB
+
+-text-align: center/left/right/justify
+
+-text-decoration : none/overline/underline/line-throught
+
+-text-transform: uppercase/lowercase/capitalize
+
+-text-indent: 50px
+
+-letter-spacing: 3px
+
+-line-height: 1.3
+
+-word-spacing
+
+-text-shadow: 3px 2px red
+
+*see about text-overflow//
+
+8. Fonts
+
+-font-family: "Times new Roman"
+
+-font-style: normal/itelic/oblique
+
+-font-size: px/em/%
+
+* use combination of percent and em so it works on all browsers
+body {
+  font-size: 100%
+}
+
+h1 {
+   font-size: 2.5em;
+}
+
+
+-font-weight: normal/bold
+
+* responsive font size is made with vw unit or mediaqueries
+
+9. Links
+
+-color: red
+
+* links will be styled depending of the state they are in
+a:link a normal
+a:vidited link the user has vidited
+a:hover link when the user hover
+a:active link at the moment it is clicked
+
+a:link {
+  text-decoration: none;
+}
+
+10. List
+
+

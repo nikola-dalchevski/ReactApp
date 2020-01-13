@@ -11,6 +11,7 @@ const Ordersummary = props => {
       </li>
     );
   });
+
   return (
     <Auxx>
       <h3>Your Order</h3>
