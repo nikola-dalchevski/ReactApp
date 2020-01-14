@@ -490,3 +490,56 @@ npm install axios --save
 axios.get/post/put/delete
 
 -axios uses promises
+-axios automaticly change object to json and otherway
+
+-axios.get("url", {config obj}).then(res => console.log(res))
+.catch(err => {this.state.error:true})
+-axios.post("url", data, {config}).then(res => console.log(res));
+-axios.delete("url",{config obj}).then(res => console.log(res);
+
+
+-interceptors with axios funtion that will be executed globaly for 
+evry request that we made
+best place to hadle intercepros is in index.js file
+
+-request interceptor
+axios.interceptors.request.use(config => {
+    console.log(config);
+   will be executed for evry request we have
+   good place for setting up request header like token
+}, err => {
+    will executed if request is not send like no internet
+}
+)
+
+-response intercdeptor
+axios.interceptors.response.use();/ same as request
+-config will execute if response is success
+-err will execute if resonse has error status code
+
+-set up axios configuration
+in index,js
+
+axios.defaults.baseURL = "url"
+axios.defaults.headers.common['authorization'] = "TOKEN"
+axios.defaults.headers.post["Contetnt-type"] = "Aplication/json"
+
+
+-making instance from axios (if you whant to have multiple configurations)
+- instance will take defaults config of axios but override whit the local settings
+
+-new js file
+import axios from axios
+
+const ax = axios.create({
+   baseURL : "url"
+})
+
+ax.defaults.headers.... = 'Something'
+
+export default ax
+
+if use interceptors you need to remove them in compontntWillUnmount
+first add the as class properites this.reqInterceptor = axios.inter.....
+axios.iterceptors.reqest.eject(this.reqInterceptor.eject(this.reqInterceptor)
+

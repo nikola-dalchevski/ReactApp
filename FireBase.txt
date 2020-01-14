@@ -1,0 +1,6 @@
+1 Create Project
+2 Create DataBase (RealTime)
+3 on the url if you send post method with /orders
+in base aoutomaticlly will make array of orders
+4 evry call must be /orders.json you must put .json 
+5 can add manualy in firebase childs whit +

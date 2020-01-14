@@ -164,4 +164,108 @@ a:link {
 
 10. List
 
+-list-style-type: circule/square/upper-roman/lower-alpha
 
+-list-style-image: url("name.gif")
+
+-list-style-position: outside/inside
+
+-list-style:
+type/position/image
+
+11.Display
+evry element has default display value
+
+-block elements always start on new line and thakes up the full width available
+div,h1,p,form,header,footer,section
+
+-inline elements dose not start on new line and only takes up as is necessary
+span,a,img
+
+-display: none will remove the the element its used to hide elements
+-visibility: hidden will hide the element but will remain white space on the page
+
+12. Max-width
+
+-block element set up the max-width will prevent element from
+streaching out to the edges of the screen and with margin auto
+will be centered horizontaly
+
+
+13. Position
+
+-position: static,relative,fixed,absolute,sticky 
+
+-statict this is by default 
+
+-relative is positioned relative from his static position
+whit setting up the top,left,rigth,bottom porps we can adjuste the
+position of relative element
+
+-fixed is positioned relative to the viewport which means
+alwayse will stay in the same position
+
+-absolute is positioned relative to the neares positioned ancestor if dosent
+have will be positioned to the document body
+
+if two elements are overlaped z-index is used for what is shown
+
+14.Overflow
+-specifies whether to clip the content or to ass dcrollbars when the content is too big
+
+-overflow: visible(default) the content renders outside the element box
+-hidden rest of the content is not be visible out of the box
+-scroll scroll bar is added to see the rest of contetn
+-auto add scroll only if it is necessery
+
+-overflow property only works for block elements
+
+-overflow-x is only for right/left of the content
+-overflow-y is only for top/bottom of the content
+
+15. Float
+-this property specify how an elemetn should float 
+
+-float:left/right/none/inherit
+
+-clear property what elements can float beside  the cleared element and on which side
+
+-clear: none/left/right/both/inherit
+
+* i think will clear content on that side of the element
+
+16.Inline-Block
+
+-display: inline-block
+
+-the diference to inline is that this style allows to set up width and height
+
+-the diference to block is that dose not add line brake at the end of an element
+
+17.Align
+
+-for horizontally to center block element use margin: auto
+setting the width of an element will prevent to streach to the edges of its container
+
+-text-align: center
+
+-for image make her to block element and set up right and left margin to auto
+
+-center verticlly using padding: 50px 0;
+
+-center vertically and horizontally useing paddng and text-align: center
+
+-can center vertically using line height
+
+-center using position and transform
+
+.container {
+   position: relative
+}
+
+.child {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%)
+}
