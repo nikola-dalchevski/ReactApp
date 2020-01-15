@@ -269,3 +269,103 @@ setting the width of an element will prevent to streach to the edges of its cont
    left: 50%;
    transform: translate(-50%, -50%)
 }
+
+
+18. Combinators
+
+descendant (space) somewhere inside an element
+child (>) direct child to an element
+adjacend (+) the first sibling after element
+sibling (~) all siblings after element
+
+19. Pseudo-classes
+
+selector:pseudo-class
+-a:active/hover/visited/link
+-input:checked/disabled/enabled/focus/invalid/read-only/required
+-p:empty/first-child/first-of-type/last-child/nth-child(2)/only-of-type/only-child/
+
+
+20. Pseudo-elements
+
+selector::pseudo-element
+::after insert something after the content
+::before insert something before the contetnt
+::first-letter
+::first-line
+::selection select the portion of an element that is selectedd by the user
+
+21. Opacity
+
+-starts with opacity of 1 if you small da opacity element 
+is getting more transparent
+-if opacity is 0 you dont see the elemetn
+-in rgba() the last value is the opacity value
+
+
+
+22.Image Sprites
+-its collection of images put in one image
+-with sprites we reduce the number of server requests
+
+-if You need reed more
+
+
+22.Navigation Bar
+
+-navigation bar is basically a list of links 
+
+-for vertically navigation bar
+
+ul{
+  list-style-type:none;
+  margin: 0
+  padding : 0
+  width: 200px
+  bgc : black
+//this props are for full height
+   height: 100%;
+   position: fixed;
+   overflow: auto;
+}
+
+li {
+  text-align: center;
+}
+
+li a {
+   display: block;
+   color  : white;
+   padding: 8px 16px
+   text-decoration: none;
+}
+
+li a:hover{
+   bgc: somecolor;
+   color: white
+}
+
+
+-horizontally navigation bar
+
+ul{
+   list-style-type:none;
+  margin: 0
+  padding : 0
+  bgc: color
+ overflow: hidden
+}
+
+li{
+  float: left
+}
+
+li a {
+   display: block;
+   color  : white;
+   padding: 8px 16px
+   text-decoration: none;
+   text-align: center;
+}
+
+-See more on w3school when you need it

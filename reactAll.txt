@@ -373,13 +373,65 @@ diference is  tha sort synrax dont accept key as attruibute if we render list of
 16 React Router
 
 -three different packages for routing
-*react-router - provides the core routing components and functions
-* react-router-native - its used fro mobile applications
-* react-router-dom - its used from web aplications
+w*react-router - provides the core routing components and functions
+m* react-router-native - its used fro mobile applications
+w* react-router-dom - its used from web aplications to render on to a dom
 
 -two types of router componentns
 *<BrowserRouter> handiling the dynamic URL
 *<HashRouter> it is used from handiling the static request
+
+-import BrowserRoutere in app.js or index.js and wrap evrything with that need 
+to use router with <BrowserRouter>
+
+Route has some attributes
+-path="/" if two Route has same path the the two will be rendered on the screen
+router first see if the url starts same as path if its true it will render 
+to prevent this use exact
+-exact (bool) will be rendered only the path is exact
+-component={App} what component to render
+-render={() => (JSX)} put jsx to render
+
+*if you use a tag evry time you change link application will rerender
+to remove this behavior change a to <Link> who hase to attribute
+to="/new-post" or to={{pathname:"/", search: '?something=true'}}
+
+
+* react router send to components some default proprs
+if you what to resend them in onother nested component there are two ways
+as attribute {...this.props}
+as attribute match={this.props.match}
+in child component import withRouter from react-router-dom
+its highorder component wrap export with it
+
+-can be send parametar throu the Router with path="/:id"
+-the parameter is recived in component with this.props.match.params.id
+
+-you can send parameter programatically with handler method this.porps.history.push({pathname: '/' + id})
+
+-you can use NavLink insted of Link will give you chance to style the active link
+this will add to the link that is active a class with name active 
+you can override the name of the active class with the attribute activeClassName="myActive"
+also you can use activeStyle={{color:orange}} attrubute to style the active link
+
+
+-Switch can be imported from rect-router-dom and can wrap Routes whit that will be 
+called the first Route thet match the path
+
+-Rdirect can be imported from react-router-dom and can have two attributes
+from and to so from one url will redirect to another
+-redirect can be used for conditional redirection on components only to attribute
+-also can redirect using this.props.history.push("/posts/")
+
+-Gard some routes
+set state auth : false 
+and conditionaly render <Router> if is not there set up default router
+
+Route without found will catch evry url that is not specified in the Switch
+
+Code spliting or Lazy loading will download olny the content thet is requested by the 
+page url
+
 
 import {Route, Link, BrowserRouter} from 'react-router-dom'
 import App from 'components';
