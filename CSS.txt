@@ -317,6 +317,41 @@ is getting more transparent
 
 -for vertically navigation bar
 
+
+23. Attribute Selector
+
+[targer] or a[target]
+
+[attribute="value"]   a[target="_blank"]{}
+
+
+24. Units
+
+-absolute length units (cm, mm, in-2.54, px, pt, pc)
+
+-relative length units 
+em - relative to teh font-size of the elemet(2em means 2 times of the size of the current font)
+ex - realative to the x-height of the current font
+ch - rekatuve ti the width of the 0
+rem - relative font-size of th root element
+vw - relative to 1% of the height of th viewport
+vh - relative to 1% of the height of the viewport
+
+
+25. Specifity
+
+-Sjpecificity Hierarchy
+inline styles , 1000
+id, 100
+classes, attributes and pseudo-classes 10
+elements and pseudo-elements 1
+
+
+-if specificity is the same the latest rule counts
+
+
+
+
 ul{
   list-style-type:none;
   margin: 0

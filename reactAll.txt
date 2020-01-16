@@ -258,7 +258,7 @@ Practical usage
 
 10 React Forms
 
-tow types of form input
+two types of form input
 - uncontrolled 
 the som handles the from data
 you need to use ref to get form values
