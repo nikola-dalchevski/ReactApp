@@ -290,6 +290,8 @@ to hadling multile inputs is best to add name attribute
   }  
 
 
+
+-Form validation in react can be done manualy and with third part packages
 11 React Events
 
 -React event handeling system is known as Synthetic Events
@@ -593,5 +595,41 @@ export default ax
 
 if use interceptors you need to remove them in compontntWillUnmount
 first add the as class properites this.reqInterceptor = axios.inter.....
-axios.iterceptors.reqest.eject(this.reqInterceptor.eject(this.reqInterceptor)
+axios.iterceptors.reqest.eject(this.reqInterceptor.eject(this.reqInterceptor31)
+
+31.Redux 
+good place to create store is index.js
+
+A.Connect redux to react
+- in index.js
+import { Provider } from 'react-redux'
+import { CreateStore } from 'redux';
+
+from reducers create store
+
+const store = createStore(reducer);
+
+wrap <App/> whit Provider and add to him attribute store={store}
+
+B. Reducer is a function that have two parameters (oldState, action)
+and returns the new state but not to mutate the old one need to make new reference
+
+
+C.connect component with store
+-import { connect } from 'react-redux'
+
+export default connect(mapStateToProps, mapDispatchToProps)(Component)
+
+-mapStateToProps has one parameter the state and return object that contains the 
+props that component will recive
+
+-mapDipatchToProps has one parameter the dispatch function and return object with 
+properties that hold reference to action with type;
+
+
+D. when to use redux
+
+-Local ui State / show/hide backdrop of modal / can use redux but not recomended
+-Persistent State/ all users, all posts/  store on server use redux
+-Client state / isAutenticate , filter by user/ use redux
 
