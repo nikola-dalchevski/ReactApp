@@ -29,6 +29,14 @@ scroll or be fixed
 /color/image/repeat/attacment/position
 
 
+multiple iamges
+background-iamge: url(), url();
+background-position : right bottom, left top;
+bacground-repeat: no-repeat, repeat;
+
+
+background-size: 100px 50px ;
+
 2.Border
 
 -border-style : solid
@@ -349,6 +357,21 @@ elements and pseudo-elements 1
 
 -if specificity is the same the latest rule counts
 
+
+26. Rounded Corners
+
+-border-radius: 15px 50px 30px 5px
+-border-radius: topleft/topright/bottomright/bottomleft
+-3 values topleft/ topright and bottomleft/ bottomright
+-2 values topleft and bottomright/ topright and bottomleft
+-1 value from all
+
+
+
+
+27 Shadows
+text-shadow: 2px, 2px, 5px, red
+horisontaly, verticaly, bloorefect, color
 
 
 

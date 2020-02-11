@@ -1,0 +1,201 @@
+-git init   -  will make new blank repository in the folder
+
+-git init directoryName - will create repository inside new directory
+
+-touch filename - will make new file
+
+-git filename or . for all  - add will add files to the repository
+add is used to add files ato the index(staging Area)
+add command can be run many times before the commit
+-if you delete file from directory will be still in the repository
+with git add filename can be removied files from the staging area;
+
+
+-git status will show as if the files are untracked
+
+
+-git add --ignore-remuval will ignore remuval files
+
+-git add -u stage only the modified and deleted files
+
+-git add *.js will stage all files with extension js
+
+-git reset filename will remove file from staging
+
+-git-commit its used to fetch updates from the staging are to the repository
+commits are snapshots of the project evry commit is recorded in the master branch
+its posible to recall commits or rever it to the older version
+two commits will never override because evry commit has own id
+git commit will ask for message
+
+-if do only git commit press esc and after that I for inser mode and type the message
+press esc after and :wq to save end exit
+
+-git commit -a will only commit modyfied files not new added
+
+-git commit -m 'message' is used to write the message at the same time
+
+
+-git clone is used form making a copy from target(remote) repository
+git clone <url>
+
+
+-git can clone only specific branch 
+git clone -b branchName url
+
+
+
+
+
+-if you want to swithc the branches but not to commit current branch you can use git stash
+it means to store something sagely in a hidden place
+
+-git stash save 'stashmessage' - this way you can stash with message
+
+-git stash list - is used to check the stored stashes 
+
+-git stash apply - will return stash files and can be commited
+
+-git stash apply stash@{id} - will return stash files with that id
+
+-git stash show - will show thw file that is stashed and changes made on them
+
+-git stash show p - chek if you need!
+
+-git stash pop - is same as apply but with pop stash will be removed from the stack after is applied
+
+-git stash drop - is used to delete stash from the queue. it deletes the most recent stash
+
+-git stash drop stash{id} - will delete stash with some id
+
+-git stash clear - will remove all stashes at once;
+
+-git stash branch branchName - will stash on separate branch(use this if you work on some branch not master)
+
+
+
+-git ignore is used to specify untracket files that Git should ignore them
+this is made up in separet file with name .gitignore
+touch .gitignore
+now you can add files and directories that you whant to be ignored
+finnaly you need to commit gitignore file
+git add .gitignore
+git commit -m 'git ignore created'
+
+-# git ignores the blank lines or lines starting with #
+(see about this on internet how to populate git ignore file)
+
+-git config --global core.excludefile `/.gitignore_global will make global git ignore file (if you need this see on internet)
+
+
+
+
+-git fork is a rough copy of a repository allows you to freely test and debug with changes
+without affecting the original project its simular to clone but this is on server side copy
+
+
+-getting a git repository
+create local repository 
+clone a remote repository
+
+git index is a staging are between the working directory and repositiry
+-there tree places in git where files changes can reside
+*working directory
+when working on your project and made some changes its workin directory and is available on your computer
+*staging area
+can be described as preview of the next commmit
+*repository
+it contains the collection of the files as well as the history of  changes made to those files
+
+-git head points out the last commit in the current checkout branch its like pointer to any reference
+-it can be understud as the current branch
+-git show head - is used to chek the status of the head
+-git log - will show the fistory of the commits in the project
+
+-if head dosent pont to moset recent commit is called detached head.
+
+
+-master is a naming convention for Git branch. its a default branck of git
+ 
+-origin is referred to the remote repository where you want to publish you commits
+the default remote repository is called origin
+
+git has two types of branches called local and remote. 
+to use git pull and push you have to tell your local branch on which branch is going to operate.
+
+
+-remote is concerned with the remote repository.
+-git remote - use this command to see if the remote repository is existing 
+it will return origin that is the default name for remote server
+-git remote -v - is going to show the urls that git has stored as a short name
+
+-when we fetch a repository git adds a remote for the repository
+-also can explicitly add remote reposiroty
+-git remote add <shortName(origin)> <remote url>
+
+-if you want to fetch or clone remote branch
+-git fetch <remotename> - will fetches thee updates that have been made to the remote server seen you cloned it
+ but not merge or modify the data
+-git clone <remote> when you clone repository origin is added for default name
+-git pull <remote> will get updated that have been made to  the remote seens you clone 
+and automaticly will merge them not like fetch
+
+-git push <remote><baranch>
+-git push origin master
+
+-to disable connection to the remote
+-git remote rm <destination(name)>
+
+-git remote rename <oldname><newname> - changes name of remote
+
+-git remote show <remote>
+
+-git remote set-url <remotename><newUrl> - whit this can change the url of the remote
+
+
+
+
+-git log to exit from git log press q 
+-git log --online display output as one commit per line
+-git log --stat it display the files that have been modified and also the number of lines
+of the total records thet have been updated
+
+
+-git branch the master branch is the default branch in git
+it is insantied when first commit is made on the project
+
+-git branch <branchName> - will create new branch
+-git branch -list - will show list of branches
+-git delete -d<branchName>
+
+-git push origin -delete<branchName> - will delete branch from remote repository
+
+-git checkout <branchname> - sewitch between branches
+
+-git branch -m master - will swithc back to the master branch
+
+-git branch -m  <oldname> <newname> - will rename a branch
+
+-you can merge other branch to the currently active branch
+-git merge <branchname>/<commitid>
+-you can merge a specific commit to branch by using commit id 
+
+
+
+-git revert dont go to previuse commit it is new commit with revert changes
+
+-git revert <commit>
+
+-git revert -e <commit>
+
+
+
+
+
+
+ 
+
+
+
+
+
