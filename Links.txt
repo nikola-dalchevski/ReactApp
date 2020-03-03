@@ -1,3 +1,4 @@
 -Spinners with css and html https://projects.lukehaas.me/css-loaders/
 -React connect to host images with firebase https://www.youtube.com/watch?v=YR4roPyfDQU
 - google extension for dark mode  Dark Mode extension https://chrome.google.com/webstore/detail/dark-mode/dmghijelimhndkbmpgbldicpogfkceaj/related?hl=en
+-dog.ceo api for testing
